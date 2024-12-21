@@ -1,35 +1,41 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
-
+import Pageone from "./component/Pageone";
+import MiniDrawer from "./component/Drawer/Drawer";
+import { Routes, Route } from "react-router-dom";
+import Pagetwo from "./component/Pagetwo";
+import { useMode, ColorModeContext } from "./darkMode/theme";
+import { CssBaseline, ThemeProvider } from "@mui/material";
+import MyDrawer from "./component/Drawer/Drawers";
 function App() {
-  const [count, setCount] = useState(0)
+  const [theme, colorMode] = useMode();
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <ColorModeContext.Provider
+      // @ts-ignore
+      value={colorMode}
+    >
+      <ThemeProvider
+        // @ts-ignore
+        theme={theme}
+      >
+        <CssBaseline />
+        <Routes>
+          <Route path="/" element={<MyDrawer />}>
+            <Route path="/Dashboard" element={<Pageone />} />
+            <Route path="/ManageTeam" element={<Pagetwo />} />
+            <Route path="/ContactInformation" element={<Pageone />} />
+            <Route path="/InvoiceBalences" element={<Pagetwo />} />
+            <Route path="/ProfileForm" element={<Pageone />} />
+            <Route path="/Calender" element={<Pagetwo />} />
+            <Route path="/FaqPage" element={<Pageone />} />
+            <Route path="/BarChart" element={<Pagetwo />} />
+            <Route path="/PieChart" element={<Pageone />} />
+            <Route path="/LineChart" element={<Pagetwo />} />
+            <Route path="/GeographyChart" element={<Pageone />} />
+          </Route>
+        </Routes>
+      </ThemeProvider>
+    </ColorModeContext.Provider>
+  );
 }
 
-export default App
+export default App;
