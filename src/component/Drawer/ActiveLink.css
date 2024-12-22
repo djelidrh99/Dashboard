@@ -1,9 +1,10 @@
 .activeLink {
-    background-color: rgba(0, 0, 0, 0.15) !important;
+    background-color: rgba(14, 165, 233, 0.15) !important;
     transition: 0.4s;
 }
 
 
 .activeLink:hover {
-    background-color: rgba(0, 0, 0, 0.04) !important;
+    background-color: rgba(14, 165, 233, 0.04) !important;
 }
+

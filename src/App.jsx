@@ -5,6 +5,7 @@ import Pagetwo from "./component/Pagetwo";
 import { useMode, ColorModeContext } from "./darkMode/theme";
 import { CssBaseline, ThemeProvider } from "@mui/material";
 import MyDrawer from "./component/Drawer/Drawers";
+import Dashboard from "./component/Pages/Dashboard/Dashboard";
 function App() {
   const [theme, colorMode] = useMode();
 
@@ -20,7 +21,7 @@ function App() {
         <CssBaseline />
         <Routes>
           <Route path="/" element={<MyDrawer />}>
-            <Route path="/Dashboard" element={<Pageone />} />
+            <Route path="/Dashboard" element={<Dashboard />} />
             <Route path="/ManageTeam" element={<Pagetwo />} />
             <Route path="/ContactInformation" element={<Pageone />} />
             <Route path="/InvoiceBalences" element={<Pagetwo />} />

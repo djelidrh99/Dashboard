@@ -10,6 +10,7 @@ export const getDesignTokens = (mode) => ({
           // palette values for light mode
           text: {
             primary: "#2B3445",
+            fixColor:"rgb(14 165 233)"
           },
           neutral: {
             main: "#64748B",
@@ -30,6 +31,7 @@ export const getDesignTokens = (mode) => ({
           },
           text: {
             primary: "#fff",
+            fixColor:"rgb(14 165 233)"
           },
         }),
   },

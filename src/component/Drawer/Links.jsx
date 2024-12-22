@@ -34,7 +34,7 @@ export default function Links({link,isOpen}) {
               .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
               .join("")}`}
           >
-            <ListItem disablePadding sx={{ display: "block" }}>
+            <ListItem disablePadding sx={{ display: "block"}}>
               <ListItemButton
                 sx={[
                   {
@@ -81,6 +81,7 @@ export default function Links({link,isOpen}) {
                   ]}
                 />
               </ListItemButton>
+            
             </ListItem>
           </NavLink>
         ))}
