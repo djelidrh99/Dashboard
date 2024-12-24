@@ -11,6 +11,7 @@ import PointOfSaleIcon from '@mui/icons-material/PointOfSale';
 import PersonAddIcon from '@mui/icons-material/PersonAdd';
 import BoxData from "./BoxData";
 import TrafficIcon from '@mui/icons-material/Traffic';
+import HeadTitle from "../../ReusableCompenent/HeadTitle";
 
 // Enregistrement des éléments nécessaires
 Chart.register(ArcElement, Tooltip, Legend);
@@ -159,12 +160,8 @@ export default function Dashboard() {
         justifyContent="space-between"
         alignItems="center"
         >
-            <Box>
-                <Typography fontWeight="bold" color={theme.palette.text.
-// @ts-ignore
-                fixColor} variant="h4">Dashboard</Typography>
-                <Typography variant="h6">Welcome to your dashboard</Typography>
-            </Box>
+          <HeadTitle title={"Dashboard"} subTitle={"Welcome to your dashboard"}/>
+            
             <Button sx={{fontWeight:"bold"}} variant="contained">
                 <DownloadOutlinedIcon sx={{marginRight:"10px"}}/>
                 Download Reports
