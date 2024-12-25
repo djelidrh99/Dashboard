@@ -6,54 +6,75 @@ import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
 import MenuItem from "@mui/material/MenuItem";
 import InputLabel from "@mui/material/InputLabel";
-import { useState } from "react";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
+import { useForm } from "react-hook-form"
+import { Typography } from "@mui/material";
+import validator from 'validator';
+
 
 
 export default function CreateUser() {
-    const [age, setAge] = useState('');
+    const {
+        register,
+        handleSubmit,
+        watch,
+        formState: { errors },
+      } = useForm()
+      const onSubmit = (data) => console.log(data)
+      console.log(watch("example"))
 
-    const handleChange = (event) => {
-      setAge(event.target.value);
-    };
+    
 
 
 return (
-    <Stack sx={{pb:"10px"}} direction="column" gap="10px">
+    <Stack onSubmit={handleSubmit(onSubmit)} component={'form'} sx={{pb:"10px"}} direction="column" gap="10px">
         <HeadTitle title={"Team"} subTitle={"Managing the Team Members"} />
-        <Stack sx={{mt:"20px"}} component={'form'} direction="column" gap="40px" >
+        <Stack sx={{mt:"20px"}}  direction="column" gap="40px" >
             <Stack direction="row" gap="10px">
-            <TextField sx={{flexGrow:1}} id="filled-basic" label="Filled" variant="filled" />
-            <TextField sx={{flexGrow:1}} id="filled-basic" label="Filled" variant="filled" />
+                <Stack direction={'column'} sx={{flexGrow:1}}>
+                <TextField {...register("firstName", { required: true,minLength:2 })}  id="first-name" label="First Name" variant="filled" />
+                {errors.firstName && <Typography sx={{ml:"10px"}} color="error" variant="caption">This field is required & min 2 character</Typography>}
+                </Stack>
+                <Stack direction={'column'} sx={{flexGrow:1}}> 
+                <TextField {...register("lastName", { required: true,minLength:2 })}  id="last-name" label="Last Name" variant="filled" />
+                {errors.lastName && <Typography sx={{ml:"10px"}} color="error" variant="caption">This field is required & min 2 character</Typography>}
+                </Stack>
+           
             </Stack>
-            <TextField sx={{flexGrow:1}} id="filled-basic" label="Filled" variant="filled" />
-            <TextField sx={{flexGrow:1}} id="filled-basic" label="Filled" variant="filled" />
+            <Box sx={{flexGrow:1,display:"flex",flexDirection:"column"}}>
+            <TextField sx={{flexGrow:1}} {...register("email", { required:true , validate:(value)=>validator.isEmail(value)  })}   id="email" label="Email" variant="filled" />
+            {errors.email && <Typography sx={{ml:"10px"}} color="error" variant="caption">Please provide a valid email address</Typography>}
+            </Box>
+
+            <Box sx={{flexGrow:1,display:"flex",flexDirection:"column"}}>
+            <TextField sx={{flexGrow:1}} {...register("phoneNumber", { required:true,validate:(value)=> validator.isMobilePhone(value,"any",{strictMode:true})  })}   id="phone-number" label="Phone Number" variant="filled" />
+            {errors.phoneNumber && <Typography sx={{ml:"10px"}} color="error" variant="caption">Please provide a valid Phone number</Typography>}
+            </Box>
+            
         </Stack>
 
-        <Stack sx={{mt:"40px"}} component={'form'} direction="column" gap="20px" >
-            <TextField sx={{flexGrow:1}} id="filled-basic" label="Filled" variant="filled" />
-            <TextField sx={{flexGrow:1}} id="filled-basic" label="Filled" variant="filled" />
+        <Stack sx={{mt:"40px"}}  direction="column" gap="20px" >
+            <TextField {...register("addressOne")} sx={{flexGrow:1}} id="address-one" label="Address 1" variant="filled" />
+            <TextField {...register("addressTwo")} sx={{flexGrow:1}} id="address-two" label="Address 2" variant="filled" />
             <FormControl variant="filled" sx={{ flexGrow:1 }}>
-        <InputLabel id="demo-simple-select-filled-label">Age</InputLabel>
+        <InputLabel id="role-label">Role</InputLabel>
         <Select
-          labelId="demo-simple-select-filled-label"
-          id="demo-simple-select-filled"
-          value={age}
-          onChange={handleChange}
+          labelId="role-label"
+          id="role"
+          {...register("role")}
+          defaultValue={""}
         >
-          <MenuItem value="">
-            <em>None</em>
-          </MenuItem>
-          <MenuItem value={10}>Ten</MenuItem>
-          <MenuItem value={20}>Twenty</MenuItem>
-          <MenuItem value={30}>Thirty</MenuItem>
+          
+          <MenuItem value={'Admin'}>Admin</MenuItem>
+          <MenuItem value={'Manager'}>Manager</MenuItem>
+          <MenuItem value={'User'}>User</MenuItem>
         </Select>
       </FormControl>
         </Stack>
 
         <Box sx={{flexGrow:1,display:"flex",justifyContent:"end",mt:"20px"}}>
-          <Button variant="contained" >Add User</Button>  
+          <Button type="submit" variant="contained" >Add User</Button>  
         </Box>
     </Stack>
 );
