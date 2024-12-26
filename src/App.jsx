@@ -9,6 +9,7 @@ import Team from "./component/Pages/Team/Team";
 import Contacts from "./component/Pages/Contacts/Contacts";
 import Invoices from "./component/Pages/Invoices/Invoices";
 import CreateUser from "./component/Pages/CreateUser/CreateUser";
+import Calendar from "./component/Pages/Calendar/Calendar";
 function App() {
   const [theme, colorMode] = useMode();
 
@@ -29,7 +30,7 @@ function App() {
             <Route path="/ContactInformation" element={<Contacts />} />
             <Route path="/InvoiceBalences" element={<Invoices/>} />
             <Route path="/ProfileForm" element={<CreateUser />} />
-            <Route path="/Calender" element={<Pagetwo />} />
+            <Route path="/Calender" element={<Calendar />} />
             <Route path="/FaqPage" element={<Pageone />} />
             <Route path="/BarChart" element={<Pagetwo />} />
             <Route path="/PieChart" element={<Pageone />} />
