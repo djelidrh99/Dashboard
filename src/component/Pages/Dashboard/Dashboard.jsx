@@ -12,125 +12,67 @@ import PersonAddIcon from '@mui/icons-material/PersonAdd';
 import BoxData from "./BoxData";
 import TrafficIcon from '@mui/icons-material/Traffic';
 import HeadTitle from "../../ReusableCompenent/HeadTitle";
+import { data } from "react-router";
+import BoxData2 from "./BoxData2";
+import BoxData3 from "./BoxData3";
 
-// Enregistrement des éléments nécessaires
-Chart.register(ArcElement, Tooltip, Legend);
-
-const dataOne = {
-   
-    datasets: [{
-      labels: ['My First Dataset','label2'],
-      data: [60, 40],
-      backgroundColor: [
-        'rgb(255, 99, 132)',
-        'rgb(54, 162, 235)',
-        
-      ],
-      hoverOffset: 8,
-      borderWidth:0,
-      borderRadius:10,
-     
-    }]
-  };
-
-  const dataTwo = {
-   
-    datasets: [{
-      labels: ['My First Dataset','label2'],
-      data: [80, 20],
-      backgroundColor: [
-        'rgb(97, 40, 52)',
-        'rgb(169, 54, 235)',
-        
-      ],
-      hoverOffset: 8,
-      borderWidth:0,
-      borderRadius:10,
-     
-    }]
-  };
-
-  const dataThree = {
-
-
-    datasets: [{
-      labels: ['My First Dataset','label2'],
-      data: [68, 32],
-      backgroundColor: [
-        'rgb(155, 204, 75)',
-        'rgb(195, 243, 21)',
-        
-      ],
-      hoverOffset: 8,
-      borderWidth:0,
-      borderRadius:10,
-     
-    }]
-  };
-
-//   const options = {
-//     maintainAspectRatio: false,
-//     cutout: "70%",
-//     plugins: {
-//       datalabels: {
-//         color: "#fff",
-//         font: {
-//           size: 14,
-//           weight: "bold",
-//         },
-//         formatter: (value, context) => {
-//           const label = context.chart.data.labels[context.dataIndex];
-//           return `${label}: ${value}%`; 
-//         },
-//       },
-//     },
-//     legend: {
-//         display: true,
-//         position: "bottom",
-//       },
-//       tooltip: {
-//         enabled: true, // Affiche les tooltips au survol
-//       },
-//     },
-
-const dataFour = {
-
-
-  datasets: [{
-    labels: ['My First Dataset','label2'],
-    data: [58, 42],
-    backgroundColor: [
-      'rgb(190, 142, 86)',
-      'rgb(137, 19, 153)',
-      
-    ],
-    hoverOffset: 8,
-    borderWidth:0,
-    borderRadius:10,
-   
-  }]
-};
 
   const allData= [
     {
       icon:<EmailIcon sx={{color:purple[500]}} />,
       stats:'12,545',
       title:'Email Sent',
-      DoughnutData:dataOne,
-      percentage:"+21%"
+      scheme: { scheme: 'nivo'},
+      percentage:"+21%",
+      data: [{
+        "id": "html",
+        "label": "html",
+        "value": 80,
+        "color": "hsl(0, 0.00%, 0.00%)"
+      },
+      {
+        "id": "C++",
+        "label": "C++",
+        "value": 30,
+        "color": "hsl(336, 70%, 50%)"
+      }]
     },
     {
       icon:<PointOfSaleIcon sx={{color:purple[500]}} />,
       stats:'452,545',
       title:'Sales Obtained',
-      DoughnutData:dataTwo,
+      scheme: { scheme: 'dark2'},
+      data:[  {
+        "id": "Javascript",
+        "label": "Javascript",
+        "value": 70,
+        "color": "hsl(63, 70%, 50%)"
+      },
+      {
+        "id": "Css",
+        "label": "Css",
+        "value": 70,
+        "color": "hsl(141, 70%, 50%)"
+      }],
       percentage:"+33%"
     },
     {
       icon:<PersonAddIcon sx={{color:purple[500]}} />,
       stats:'32,545',
       title:'New Clients',
-      DoughnutData:dataOne,
+      scheme: { scheme: 'paired'},
+      data:[{
+        "id": "React",
+        "label": "React",
+        "value": 70,
+        "color": "hsl(146, 70%, 50%)"
+      },{
+        "id": "Typescript",
+        "label": "Typescript",
+        "value": 40,
+        "color": "hsl(146, 70%, 50%)"
+
+      }],
       percentage:"+25%"
     }
   ]
@@ -139,7 +81,19 @@ const dataFour = {
     icon:<TrafficIcon sx={{color:purple[500]}} />,
       stats:'1,112,545',
       title:'Traffic Received',
-      DoughnutData:dataFour,
+      scheme: { scheme: 'set1'},
+      data:[{
+        "id": "React",
+        "label": "React",
+        "value": 70,
+        "color": "hsl(146, 70%, 50%)"
+      },{
+        "id": "Typescript",
+        "label": "Typescript",
+        "value": 40,
+        "color": "hsl(146, 70%, 50%)"
+
+      }],
       percentage:"+15%"
 
   }
@@ -184,6 +138,8 @@ export default function Dashboard() {
            
         </Stack>
         <BoxData data={doughnutTwo}/>
+        <BoxData2/>
+        <BoxData3/>
         
     </Stack>
     

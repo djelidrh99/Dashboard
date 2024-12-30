@@ -2,25 +2,18 @@ import { Outlet } from "react-router-dom";
 import { styled, useTheme } from "@mui/material/styles";
 import Box from "@mui/material/Box";
 import MuiDrawer from "@mui/material/Drawer";
-import MuiAppBar from "@mui/material/AppBar";
-import Toolbar from "@mui/material/Toolbar";
 import CssBaseline from "@mui/material/CssBaseline";
 import Typography from "@mui/material/Typography";
 import Divider from "@mui/material/Divider";
 import IconButton from "@mui/material/IconButton";
-import MenuIcon from "@mui/icons-material/Menu";
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 import { useState } from "react";
 import Avatar from "@mui/material/Avatar";
-import Stack from "@mui/material/Stack";
-import DarkMode from "../../darkMode/DarkMode";
 import Links from "./Links";
 
 // icon sidebar
 import Person2OutlinedIcon from "@mui/icons-material/Person2Outlined";
-import SettingsOutlinedIcon from "@mui/icons-material/SettingsOutlined";
-import NotificationsNoneOutlinedIcon from "@mui/icons-material/NotificationsNoneOutlined";
 import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
 import GroupOutlinedIcon from "@mui/icons-material/GroupOutlined";
 import ContactsOutlinedIcon from "@mui/icons-material/ContactsOutlined";
@@ -31,6 +24,7 @@ import BarChartOutlinedIcon from "@mui/icons-material/BarChartOutlined";
 import PieChartOutlineOutlinedIcon from "@mui/icons-material/PieChartOutlineOutlined";
 import TimelineOutlinedIcon from "@mui/icons-material/TimelineOutlined";
 import MapOutlinedIcon from "@mui/icons-material/MapOutlined";
+import MyAppBar from "./AppBar";
 
 const drawerWidth = 240;
 
@@ -64,29 +58,7 @@ const DrawerHeader = styled("div")(({ theme }) => ({
   ...theme.mixins.toolbar,
 }));
 
-const AppBar = styled(MuiAppBar, {
-  shouldForwardProp: (prop) => prop !== "open",
-})(({ theme }) => ({
-  zIndex: theme.zIndex.drawer + 1,
-  transition: theme.transitions.create(["width", "margin"], {
-    easing: theme.transitions.easing.sharp,
-    duration: theme.transitions.duration.leavingScreen,
-  }),
-  variants: [
-    {
-      // @ts-ignore
-      props: ({ open }) => open,
-      style: {
-        marginLeft: drawerWidth,
-        width: `calc(100% - ${drawerWidth}px)`,
-        transition: theme.transitions.create(["width", "margin"], {
-          easing: theme.transitions.easing.sharp,
-          duration: theme.transitions.duration.enteringScreen,
-        }),
-      },
-    },
-  ],
-}));
+
 
 const Drawer = styled(MuiDrawer, {
   shouldForwardProp: (prop) => prop !== "open",
@@ -147,51 +119,7 @@ export default function MyDrawer() {
   return (
     <Box sx={{ display: "flex" }}>
       <CssBaseline />
-      <AppBar
-        position="fixed"
-        // @ts-ignore
-        open={open}
-      >
-        <Toolbar sx={{ display: "flex", alignItems: "center" }}>
-          <IconButton
-            color="inherit"
-            aria-label="open drawer"
-            onClick={handleDrawerOpen}
-            edge="start"
-            sx={[
-              {
-                marginRight: 5,
-              },
-              open && { display: "none" },
-            ]}
-          >
-            <MenuIcon />
-          </IconButton>
-          <Box
-            sx={{
-              display: "flex",
-              justifyContent: "space-between",
-              alignItems: "center",
-              flexGrow: 1,
-            }}
-            component="div"
-          >
-            <Typography variant="h6"> Mini variant drawer</Typography>
-            <Stack alignItems="center" direction="row">
-              <DarkMode />
-              <IconButton>
-                <NotificationsNoneOutlinedIcon sx={{ color: "white" }} />
-              </IconButton>
-              <IconButton>
-                <SettingsOutlinedIcon sx={{ color: "white" }} />
-              </IconButton>
-              <IconButton>
-                <Person2OutlinedIcon sx={{ color: "white" }} />
-              </IconButton>
-            </Stack>
-          </Box>
-        </Toolbar>
-      </AppBar>
+     <MyAppBar handleDrawerOpen={handleDrawerOpen} open={open}/>
       <Drawer variant="permanent" open={open}>
         <DrawerHeader>
           <IconButton onClick={handleDrawerClose}>
@@ -246,7 +174,7 @@ export default function MyDrawer() {
        <Divider />
        <Links isOpen={open} link={linkThree}/>
       </Drawer>
-      <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
+      <Box component="main" sx={{ flexGrow: 1, p: 3,minWidth:"1000px" }}>
         <DrawerHeader />
 
         <Outlet />

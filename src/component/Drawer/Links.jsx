@@ -6,6 +6,7 @@ import ListItemText from "@mui/material/ListItemText";
 import { NavLink } from "react-router-dom";
 import {useTheme } from "@mui/material/styles";
 import "./ActiveLink.css"
+import Tooltip from "@mui/material/Tooltip";
 
 
 
@@ -34,6 +35,7 @@ export default function Links({link,isOpen}) {
               .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
               .join("")}`}
           >
+            <Tooltip sx={{".css-3v9qdb-MuiTooltip-tooltip":{backgroundColor:"#FF0000 !important"} }}  title={element.title} placement="right-start">
             <ListItem disablePadding sx={{ display: "block"}}>
               <ListItemButton
                 sx={[
@@ -83,6 +85,7 @@ export default function Links({link,isOpen}) {
               </ListItemButton>
             
             </ListItem>
+            </Tooltip>
           </NavLink>
         ))}
       </List>
