@@ -11,6 +11,8 @@ import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 import { useState } from "react";
 import Avatar from "@mui/material/Avatar";
 import Links from "./Links";
+// @ts-ignore
+import myImg from "/assets/img/rh.jpg";
 
 // icon sidebar
 import Person2OutlinedIcon from "@mui/icons-material/Person2Outlined";
@@ -144,7 +146,7 @@ export default function MyDrawer() {
             <Avatar
               sx={open ? { width: 76, height: 76 } : { width: 36, height: 36 }}
               alt="Remy Sharp"
-              src="public\_DSC2649 copie (1).jpg"
+              src={myImg}
             />
             <Typography
               sx={

@@ -3,7 +3,7 @@ import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
-import { NavLink } from "react-router-dom";
+import { NavLink,useLocation } from "react-router-dom";
 import {useTheme } from "@mui/material/styles";
 import "./ActiveLink.css"
 import Tooltip from "@mui/material/Tooltip";
@@ -12,6 +12,7 @@ import Tooltip from "@mui/material/Tooltip";
 
 export default function Links({link,isOpen}) {
     const theme = useTheme();
+    const location = useLocation();
 
   return (
     
@@ -19,7 +20,7 @@ export default function Links({link,isOpen}) {
         {link.map((element, index) => (
           <NavLink
           key={element.title}
-          className={({isActive})=>isActive ? "activeLink":""}
+          className={({isActive})=>isActive || (element.title === "Dashboard"&&location.pathname==="/") ? "activeLink":""}
 
           style={ 
             
@@ -35,7 +36,7 @@ export default function Links({link,isOpen}) {
               .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
               .join("")}`}
           >
-            <Tooltip sx={{".css-3v9qdb-MuiTooltip-tooltip":{backgroundColor:"#FF0000 !important"} }}  title={element.title} placement="right-start">
+            <Tooltip  title={element.title} placement="right-start">
             <ListItem disablePadding sx={{ display: "block"}}>
               <ListItemButton
                 sx={[

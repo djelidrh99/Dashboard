@@ -15,6 +15,7 @@ import HeadTitle from "../../ReusableCompenent/HeadTitle";
 import { data } from "react-router";
 import BoxData2 from "./BoxData2";
 import BoxData3 from "./BoxData3";
+import BoxData4 from "./BoxData4";
 
 
   const allData= [
@@ -140,6 +141,7 @@ export default function Dashboard() {
         <BoxData data={doughnutTwo}/>
         <BoxData2/>
         <BoxData3/>
+        <BoxData4/>
         
     </Stack>
     

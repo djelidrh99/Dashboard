@@ -13,6 +13,7 @@ import PieChart from "./component/Pages/PieChart/PieChart";
 import LineChart from "./component/Pages/LineChart/LineChart";
 import GeographyChart from "./component/Pages/Geography/GeographyChart";
 import Faq from "./component/Pages/Faq/Faq";
+import "./App.css";
 function App() {
   const [theme, colorMode] = useMode();
 

@@ -692,7 +692,7 @@ const data =[
 ]
 
 
-export default function Geography({scale}) {
+export default function Geography({scale ,isDashboard=false}) {
   const theme =useTheme()
   return (
     <ResponsiveChoropleth
@@ -756,7 +756,7 @@ export default function Geography({scale}) {
       "legends": {
           "title": {
               "text": {
-                  "fontSize": 11,
+                  "fontSize": isDashboard?0: 11,
                   "fill": "#333333",
                   "outlineWidth": 0,
                   "outlineColor": "transparent"
@@ -821,7 +821,7 @@ export default function Geography({scale}) {
           "tableCellValue": {}
       }
   }}
-  legends={[
+  legends={isDashboard?[]:[
     {
         anchor: 'bottom-left',
         direction: 'column',
