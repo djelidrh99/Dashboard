@@ -16,3 +16,39 @@
    
   /* for Firefox */
    html {scrollbar-color: #9e4673 #3d4a59;} 
+
+   @font-face {
+    font-family: 'Nunito Sans';
+    src: url("../public/font/NunitoSans_7pt-Black.ttf");
+    font-weight: 900;
+   }
+
+   @font-face {
+    font-family: 'Nunito Sans';
+    src: url("../public/font/NunitoSans_7pt-Bold.ttf");
+    font-weight: bold;
+   }
+
+   @font-face {
+    font-family: 'Nunito Sans';
+    src: url("../public/font/NunitoSans_7pt-Italic.ttf");
+    font-style: italic;
+   }
+
+   @font-face {
+    font-family: 'Nunito Sans';
+    src: url("../public/font/NunitoSans_7pt-Light.ttf");
+    font-weight: 200;
+   }
+
+   @font-face {
+    font-family: 'Nunito Sans';
+    src: url("../public/font/NunitoSans_7pt-Regular.ttf");
+    font-weight: normal;
+   }
+
+    @font-face {
+      font-family: 'Nunito Sans';
+      src: url("../public/font/NunitoSans_7pt-Medium.ttf");
+      font-weight: 500;
+    }

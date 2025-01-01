@@ -117,6 +117,7 @@ export default function MyAppBar({handleDrawerOpen,open}) {
         }}
         component="div"
       >
+        
           <Search>
             <SearchIconWrapper>
               <SearchIcon />
@@ -126,6 +127,9 @@ export default function MyAppBar({handleDrawerOpen,open}) {
               inputProps={{ 'aria-label': 'search' }}
             />
           </Search>
+          <Box sx={{flexGrow: 1}}> 
+          
+        </Box>
         <Stack alignItems="center" direction="row">
           <DarkMode />
           <IconButton>

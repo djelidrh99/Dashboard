@@ -1,6 +1,6 @@
 import { Routes, Route } from "react-router-dom";
 import { useMode, ColorModeContext } from "./darkMode/theme";
-import { CssBaseline, ThemeProvider } from "@mui/material";
+import { createTheme, CssBaseline, ThemeProvider } from "@mui/material";
 import MyDrawer from "./component/Drawer/Drawers";
 import Dashboard from "./component/Pages/Dashboard/Dashboard";
 import Team from "./component/Pages/Team/Team";
@@ -17,15 +17,16 @@ import "./App.css";
 function App() {
   const [theme, colorMode] = useMode();
 
+  
   return (
+    
+    <ThemeProvider
+    theme={theme}
+  >
     <ColorModeContext.Provider
-      // @ts-ignore
       value={colorMode}
     >
-      <ThemeProvider
-        // @ts-ignore
-        theme={theme}
-      >
+     
         <CssBaseline />
         <Routes>
           <Route path="/" element={<MyDrawer />}>
@@ -43,8 +44,9 @@ function App() {
             <Route path="/GeographyChart" element={<GeographyChart/>} />
           </Route>
         </Routes>
-      </ThemeProvider>
+     
     </ColorModeContext.Provider>
+    </ThemeProvider>
   );
 }
 

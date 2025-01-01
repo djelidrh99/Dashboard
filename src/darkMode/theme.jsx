@@ -35,6 +35,9 @@ export const getDesignTokens = (mode) => ({
           },
         }),
   },
+  typography: {
+    fontFamily: 'Nunito Sans'
+  },
 });
 
 // context for color mode

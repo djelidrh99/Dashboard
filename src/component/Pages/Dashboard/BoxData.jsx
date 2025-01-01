@@ -15,6 +15,7 @@ export default function BoxData({data}) {
   return (
     <Paper
             sx={{flexGrow:1,p:1}}
+            
             >
             <Stack
             direction="row"

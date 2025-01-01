@@ -25,6 +25,7 @@ export default function BoxData3() {
     <Stack
     direction="row"
     gap={'10px'}
+    
     >
         <Paper
         sx={{flexBasis:"50%",p:1}}

@@ -1,10 +1,7 @@
-import Typography  from "@mui/material/Typography";
-import Box from "@mui/material/Box";
 import Stack from "@mui/material/Stack";
 import Button from "@mui/material/Button";
 import DownloadOutlinedIcon from '@mui/icons-material/DownloadOutlined';
 import {  useTheme } from "@mui/material";
-import { Chart, ArcElement, Tooltip, Legend } from 'chart.js';
 import EmailIcon from '@mui/icons-material/Email';
 import { purple } from "@mui/material/colors";
 import PointOfSaleIcon from '@mui/icons-material/PointOfSale';
@@ -12,10 +9,12 @@ import PersonAddIcon from '@mui/icons-material/PersonAdd';
 import BoxData from "./BoxData";
 import TrafficIcon from '@mui/icons-material/Traffic';
 import HeadTitle from "../../ReusableCompenent/HeadTitle";
-import { data } from "react-router";
 import BoxData2 from "./BoxData2";
 import BoxData3 from "./BoxData3";
 import BoxData4 from "./BoxData4";
+import { motion } from "framer-motion";
+
+ 
 
 
   const allData= [
@@ -108,6 +107,7 @@ export default function Dashboard() {
     <Stack
     direction="column"
         gap="10px"
+        
     
     >
         <Stack
