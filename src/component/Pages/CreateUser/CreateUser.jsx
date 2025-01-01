@@ -34,22 +34,22 @@ return (
         <Stack sx={{mt:"20px"}}  direction="column" gap="40px" >
             <Stack direction="row" gap="10px">
                 <Stack direction={'column'} sx={{flexGrow:1}}>
-                <TextField sx={errors.firstName?{".css-125m1rc":{color:`${theme.palette.error.main} !important` },".css-19qmmjq::after":{borderColor:`${theme.palette.error.main} !important`},".css-vpmv14.Mui-focused":{color:`${theme.palette.error.main} !important`},".css-19qmmjq::before":{borderColor:`${theme.palette.error.main} !important`}}:{}} {...register("firstName", { required: true,minLength:2 })}  id="first-name" label="First Name" variant="filled" />
+                <TextField error={errors.firstName}  {...register("firstName", { required: true,minLength:2 })}  id="first-name" label="First Name" variant="filled" />
                 {errors.firstName && <Typography sx={{ml:"10px"}} color="error" variant="caption">This field is required & min 2 character</Typography>}
                 </Stack>
                 <Stack direction={'column'} sx={{flexGrow:1}}> 
-                <TextField sx={errors.lastName?{".css-125m1rc":{color:`${theme.palette.error.main} !important`},".css-19qmmjq::after":{borderColor:`${theme.palette.error.main} !important`},".css-vpmv14.Mui-focused":{color:`${theme.palette.error.main} !important`},".css-19qmmjq::before":{borderColor:`${theme.palette.error.main} !important`}}:{}} {...register("lastName", { required: true,minLength:2 })}  id="last-name" label="Last Name" variant="filled" />
+                <TextField error={errors.lastName}  {...register("lastName", { required: true,minLength:2 })}  id="last-name" label="Last Name" variant="filled" />
                 {errors.lastName && <Typography sx={{ml:"10px"}} color="error" variant="caption">This field is required & min 2 character</Typography>}
                 </Stack>
            
             </Stack>
             <Box sx={{flexGrow:1,display:"flex",flexDirection:"column"}}>
-            <TextField sx={errors.email?{".css-125m1rc":{color:`${theme.palette.error.main} !important`},".css-19qmmjq::after":{borderColor:`${theme.palette.error.main} !important`},".css-vpmv14.Mui-focused":{color:`${theme.palette.error.main} !important`},".css-19qmmjq::before":{borderColor:`${theme.palette.error.main} !important`},flexGrow:1}:{flexGrow:1}} {...register("email", { required:true , validate:(value)=>validator.isEmail(value)  })}   id="email" label="Email" variant="filled" />
+            <TextField error={errors.email} sx={{flexGrow:1}} {...register("email", { required:true , validate:(value)=>validator.isEmail(value)  })}   id="email" label="Email" variant="filled" />
             {errors.email && <Typography sx={{ml:"10px"}} color="error" variant="caption">Please provide a valid email address</Typography>}
             </Box>
 
             <Box sx={{flexGrow:1,display:"flex",flexDirection:"column"}}>
-            <TextField sx={errors.phoneNumber?{".css-125m1rc":{color:`${theme.palette.error.main} !important`},".css-19qmmjq::after":{borderColor:`${theme.palette.error.main} !important`},".css-vpmv14.Mui-focused":{color:`${theme.palette.error.main} !important`},".css-19qmmjq::before":{borderColor:`${theme.palette.error.main} !important`},flexGrow:1}:{flexGrow:1}} {...register("phoneNumber", { required:true,validate:(value)=> validator.isMobilePhone(value,"any",{strictMode:true})  })}   id="phone-number" label="Phone Number" variant="filled" />
+            <TextField error={errors.phoneNumber} sx={{flexGrow:1}} {...register("phoneNumber", { required:true,validate:(value)=> validator.isMobilePhone(value,"any",{strictMode:true})  })}   id="phone-number" label="Phone Number" variant="filled" />
             {errors.phoneNumber && <Typography sx={{ml:"10px"}} color="error" variant="caption">Please provide a valid Phone number</Typography>}
             </Box>
             
